@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "The College Roster", root_path, id: "logo" %>
+          <nav>
+            <dive class="nav pull-right">
+              	<% if athlete_signed_in?%>
+					Signed in as <%= current_athlete.email%>. Not you?
+					<%= link_to "Sign out", destroy_athlete_session_path, :method => :delete %>
+				<% else %>
+					<%= link_to "Sign up", new_athlete_registration_path %> or <%= link_to "Sign in", new_athlete_session_path %>
+			<% end %>
+            </div>
+          </nav>
+        </div>
+      </div>
+</header>

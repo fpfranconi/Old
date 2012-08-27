@@ -1,10 +1,14 @@
 TheCollegeRoster::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-
-  devise_for :athletes
-
+  
   root to: "athletes#index"
+  
+  get "static_pages/home"
+  
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  
+  devise_for :athletes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
